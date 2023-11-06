@@ -1,0 +1,200 @@
+/* For the Default View */
+
+/* STEP1: Animiate the Logo */
+@keyframes logoAnimation {
+    0% {
+      width: 25px;
+      opacity: 0;
+    }
+    100% {
+      width: 475px;
+      opacity: 1;
+    }
+  }
+
+#logo{
+    animation: logoAnimation 5s;
+}
+
+/* STEP2: Edit the Body Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+body{
+    font-family: 'Poppins', serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* STEP3: Edit the Header Tag  */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* STEP4: Edit the nav_links */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+  /* STEP5: Make the color of nav_links unchanged even after being clicked */
+a:link,
+a:visited {
+    color: blue; 
+}
+
+/* STEP6: Style the Header inside Card Class */
+.card > header{
+    background-color: #288088;
+    border: 2px solid #45adad;
+    padding: 20px 0px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.card{
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+/* STEP7 & STEP8: Center the Card */
+/* PROBLEM!!!: Share the Same Width in Mobile View */
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+
+.pricing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+} 
+
+/* STEP9: Style the Images in the Gallery */
+.gallery img{
+    border: solid 10px #50c7c7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* STEP10: Adjust the Image Gallery */
+.gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: screen;
+}
+
+/* When the Screen-Size is Greater than 900px */
+@media screen and (min-width: 900px) {
+    /* STEP11: Edit the Logo and Nav Link */
+    /* Logo in the most Left Side */
+    /* Nav Link in the most Right Side */
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    /* STEP12: Edit Pricing and Card Classes */
+    /* each Card shares the same width */
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card{
+        flex: 0 0 275px;
+    }
+
+    /* STEP13: Modify the first header in the fixed position */
+    a + header{
+        position: sticky;
+        top: 0px;
+        right: 0;
+        left: 0;
+    }
+}
+
+/* STEP14: No Animation for Logo in Reducede Motion */
+@media (prefers-reduced-motion){
+    #logo{
+        animation: none;
+    }
+}
+
+/* Under Printed Mode */
+@media print and (orientation: portrait){
+    body{
+        /* STEP15: Change the Font Family */
+        font-family: Arial, Helvetica;
+        /* STEP16: Remove the Background Image */
+        background-image: none;
+    }
+
+    /* STEP17: Edit the nav elements  */
+    /* a + header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } */
+
+    nav{
+        width: 580px;
+    }
+    
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items:center;  
+    }
+
+    /* STEP18: Edit the Pricing to Make Elements Align Along the Bottom */
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+
+    /* STEP19: Card Element have a border as well as flex-basis */
+    .card{
+        border: solid 2px #45addd;
+        flex-basis: 325px;
+    }
+
+
+    /* STEP20: No part of Gallery should be Visibile */
+    #gallery{
+        display: none;
+    }
+
+    .gallery{
+        display: none;
+    }
+
+    /* #STEP21: Add Thumbs-up Entity in the Card Element */
+    .card li:nth-child(2)::after{
+        content: "\1F44D";
+    }
+
+}
+
+
+
